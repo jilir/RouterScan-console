@@ -1,6 +1,5 @@
 # Описание
-Это консольная версия программы Router Scan для linux
-Она использует закрытую библиотеку Router Core Library
+Это консольная версия программы Router Scan для linux. Она использует закрытую библиотеку Router Core Library. 
 Сайт оригинала находится вот тут [http://stascorp.com/load/1-1-0-56](http://stascorp.com/load/1-1-0-56)
 ### Пользоваться вот так
 ```bash
