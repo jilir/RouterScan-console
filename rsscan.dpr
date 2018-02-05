@@ -75,21 +75,22 @@ begin
 
   Pairs := 'admin'#9'admin'#13#10+
            'admin'#9'password'#13#10+
+           'admin'#9'123321Aa'#13#10+
            'admin'#9'1234'#13#10;
-//  if not SetParam(stPairsBasic, PChar(Pairs)) then begin
-//	Writeln(Pairs);
-//    Writeln('Failed to load Basic Authentication pairs');
-//    Exit;
-//  end;
-//  if not SetParam(stPairsDigest, PChar(Pairs)) then begin
-//    Writeln('Failed to load Digest Authentication pairs');
-//    Exit;
-//  end;
-//  if not SetParam(stPairsForm, PChar(Pairs)) then begin
-//    Writeln('Failed to load Form Authentication pairs');
-//    Exit;
-//  end;
-//  Writeln('Pairs updated');
+  if not SetParam(stPairsBasic, PChar(Pairs)) then begin
+	Writeln(Pairs);
+    Writeln('Failed to load Basic Authentication pairs');
+    Exit;
+  end;
+  if not SetParam(stPairsDigest, PChar(Pairs)) then begin
+    Writeln('Failed to load Digest Authentication pairs');
+    Exit;
+  end;
+  if not SetParam(stPairsForm, PChar(Pairs)) then begin
+    Writeln('Failed to load Form Authentication pairs');
+    Exit;
+  end;
+  Writeln('Pairs updated');
 
   if not SetParam(stSetTableDataCallback, @SetTableDataW) then begin
     Writeln(StdErr, 'Failed to set callback procedure');
