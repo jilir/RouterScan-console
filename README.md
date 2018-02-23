@@ -1,9 +1,9 @@
-# Описание
+## Описание
 Это консольная версия программы Router Scan для linux. Она использует закрытую библиотеку Router Core Library. 
 Сайт оригинала находится вот тут [http://stascorp.com/load/1-1-0-56](http://stascorp.com/load/1-1-0-56)
 ### Пользоваться вот так
 ```bash
-    cat /path/to/file/with/<ip>:<port>list | ./routerscan > /results/file
+    cat /path/to/file/with/<ip>:<port>list | ./routerscan  | jq 'select(.Auth != "")' > /results/file
 ```
 Ключ `-d` включает вывод логов в stderr
 

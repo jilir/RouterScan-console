@@ -13,6 +13,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 )
 
 type Router struct {
@@ -42,6 +43,7 @@ var wg sync.WaitGroup
 var c chan string = make(chan string)
 
 var threads = flag.Int("t", 2, "count of threads")
+var threadsInterval = flag.Int("it", 500, "interval between threads start")
 var debug = flag.Bool("d", false, "debug")
 
 func inet_aton(ip string) (ip_int uint32) {
@@ -171,6 +173,9 @@ func main() {
 		c <- host
 
 		stringsScanned++
+		if stringsScanned <= *threads {
+			time.Sleep(time.Duration(*threadsInterval) * time.Millisecond)
+		}
 		if stringsScanned%100 == 0 {
 			fmt.Fprintln(os.Stderr, "Current line: ", stringsScanned)
 		}
